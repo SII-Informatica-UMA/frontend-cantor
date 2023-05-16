@@ -1,0 +1,69 @@
+<header></header>
+<form>
+    <div class="form-group">
+      <label for="nombreInput">Nombre</label>
+      <input type="text" class="form-control" id="nombreInput" placeholder="John" [(ngModel)]="peticion.nombre">
+    </div>
+    <div class="form-group">
+      <label for="apellidoInput">Apellido/s</label>
+      <input type="text" class="form-control" id="apellidoInput" placeholder="Doe" [(ngModel)]="peticion.apellido">
+    </div>
+    <div class="form-group">
+      <label for="emailInput">Dirección de correo electrónico</label>
+      <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" [(ngModel)]="peticion.correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+    </div>
+    <div class="form-group">
+      <label for="contrasenaInput">Contraseña</label>
+      <input type="password" class="form-control" id="contrasenaInput" placeholder="Nueva Contraseña" [(ngModel)]="peticion.contrasena">
+    </div>
+    <div class="form-group">
+      <label for="repetirContrasenaInput">Repetir contraseña</label>
+      <input type="password" class="form-control" id="repetirContrasenaInput" placeholder="Repetir Contraseña" [(ngModel)]="peticion.repetirContrasena">
+    </div>
+    <div>
+      <span>Selecciona rol/es:</span>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Estudiante
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Vigilante de aula
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Responsable de aula
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Responsable de sede
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Corrector
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            Vicerrector
+        </label>
+    </div>
+</div>
+<button type="button" class="btn btn-success" (click)="crearUsuario()" [disabled]="!contrasenasCoinciden">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+    <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"></path>
+    <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"></path>
+  </svg>
+  Crear
+</button>
+</form>
