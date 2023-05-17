@@ -35,7 +35,7 @@ export class UserTargetComponent {
     }
   }
 
-  getUserName(role: string): string {
+  getUserRole(role: string): string {
     switch (role) {
       case 'STUDENT':
         return 'Estudiante';

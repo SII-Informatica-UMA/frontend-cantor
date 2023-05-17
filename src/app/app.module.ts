@@ -13,6 +13,10 @@ import { UsersViewComponent } from './views/users-view/users-view.component';
 import { UserTargetComponent } from './components/user-target/user-target.component';
 import { UserNavbarComponent } from './components/user-navbar/user-navbar.component';
 import { NewButtonComponent } from './components/new-button/new-button.component';
+import { EditUserViewComponent } from './views/edit-user-view/edit-user-view.component';
+import { SingleUserViewComponent } from './views/single-user-view/single-user-view.component';
+import { LoginViewComponent } from './views/login-view/login-view.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,17 +30,24 @@ import { NewButtonComponent } from './components/new-button/new-button.component
     UsersViewComponent,
     UserNavbarComponent,
     NewButtonComponent,
+    EditUserViewComponent,
+    SingleUserViewComponent,
+    LoginViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: HomeViewComponent },
+      { path: '', component: LoginViewComponent },
+      { path: 'home', component: HomeViewComponent },
       { path: 'users', component: UsersViewComponent },
       { path: 'headquarters', component: UsersViewComponent },
       { path: 'users/create', component: CreateViewComponent },
+      { path: 'users/edit/:idUser', component: EditUserViewComponent },
+      { path: 'users/:idUser', component: SingleUserViewComponent },
       { path: '**', component: Error404Component }
 
     ])
