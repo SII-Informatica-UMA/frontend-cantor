@@ -1,0 +1,26 @@
+<div class="view">
+    <div>Bienvenido a la API Cantor de Sistemas de la Información para Internet.</div>
+    <div>Para iniciar sesión prueba con las siguientes credenciales:</div>
+    <ul>
+        <li>johndoe@test.com</li>
+        <li>password1234</li>
+    </ul>
+    <form class="login-container" (ngSubmit)="isLoading=true; login();">
+            <h2>Iniciar sesión</h2>
+            <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" [(ngModel)]="email" required>
+            </div>
+            <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="email" [(ngModel)]="password" required>
+            </div>
+            <button *ngIf="!isLoading" type="submit" class="btn-login" (click)="isLoading=true; login();">Iniciar sesión</button>
+            <div class="loader" *ngIf="isLoading">
+                <div class="spinner-border" role="status">  
+                </div>
+                <span class="sr-only">Loading...</span>
+            </div>
+        
+    </form>
+</div>
