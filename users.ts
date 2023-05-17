@@ -4,6 +4,7 @@ const users = [
         "firstName": "John",
         "lastName": "Doe",
         "email": "johndoe@test.com",
+        "password": "mypassword",
         "roles": [
             "STUDENT",
             "HEADQUARTER_MANAGER"
@@ -14,6 +15,7 @@ const users = [
         "firstName": "Arturo",
         "lastName": "Aguilera",
         "email": "artu@test.com",
+        "password": "mypassword",
         "roles": [
             "STUDENT"
         ]
@@ -23,6 +25,7 @@ const users = [
         "firstName": "Manu",
         "lastName": "Jardi",
         "email": "rasti@test.com",
+        "password": "mypassword",
         "roles": [
             "STUDENT"
         ]
@@ -32,6 +35,7 @@ const users = [
         "firstName": "Ale",
         "lastName": "Rey",
         "email": "aleki@test.com",
+        "password": "mypassword",
         "roles": [
             "STUDENT"
         ]
@@ -41,6 +45,7 @@ const users = [
         "firstName": "Laura",
         "lastName": "Perez",
         "email": "lperez@test.com",
+        "password": "mypassword",
         "roles": [
             "CLASSROOM_GUARD"
         ]
@@ -50,6 +55,7 @@ const users = [
         "firstName": "Julio",
         "lastName": "Martinez",
         "email": "jmartinez@test.com",
+        "password": "mypassword",
         "roles": [
             "HEADQUARTER_MANAGER"
         ]
@@ -59,6 +65,7 @@ const users = [
         "firstName": "David",
         "lastName": "Villanueva",
         "email": "dvillanueva@test.com",
+        "password": "mypassword",
         "roles": [
             "STUDENT"
         ]
@@ -68,6 +75,7 @@ const users = [
         "firstName": "Cristina",
         "lastName": "Lopez",
         "email": "clopez@test.com",
+        "password": "mypassword",
         "roles": [
             "CORRECTOR"
         ]
@@ -77,6 +85,7 @@ const users = [
         "firstName": "Roberto",
         "lastName": "Garcia",
         "email": "rgarcia@test.com",
+        "password": "mypassword",
         "roles": [
             "STUDENT"
         ]
@@ -86,6 +95,7 @@ const users = [
         "firstName": "Maria",
         "lastName": "Hernandez",
         "email": "mhernandez@test.com",
+        "password": "mypassword",
         "roles": [
             "CLASSROOM_MANAGER"
         ]
@@ -95,6 +105,7 @@ const users = [
         "firstName": "Emily",
         "lastName": "Jones",
         "email": "emilyjones@test.com",
+        "password": "mypassword",
         "roles": [
             "HEADQUARTER_MANAGER"
         ]
@@ -104,6 +115,7 @@ const users = [
         "firstName": "Lucas",
         "lastName": "Smith",
         "email": "lucassmith@test.com",
+        "password": "mypassword",
         "roles": [
             "STUDENT",
             "CLASSROOM_GUARD"
@@ -114,6 +126,7 @@ const users = [
         "firstName": "Sophie",
         "lastName": "Walker",
         "email": "sophiewalker@test.com",
+        "password": "mypassword",
         "roles": [
             "CORRECTOR"
         ]
@@ -123,6 +136,7 @@ const users = [
         "firstName": "Oscar",
         "lastName": "Garcia",
         "email": "oscargarcia@test.com",
+        "password": "mypassword",
         "roles": [
             "STUDENT",
             "CLASSROOM_MANAGER"
@@ -133,6 +147,7 @@ const users = [
         "firstName": "Lara",
         "lastName": "Gomez",
         "email": "laragomez@test.com",
+        "password": "mypassword",
         "roles": [
             "VICE_RECTORATE"
         ]
@@ -142,6 +157,7 @@ const users = [
         "firstName": "Emma",
         "lastName": "Brown",
         "email": "emmabrown@test.com",
+        "password": "mypassword",
         "roles": [
             "VICE_RECTORATE",
             "STUDENT"
