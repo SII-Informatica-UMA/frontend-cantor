@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import users from 'users';
 
 @Component({
   selector: 'app-edit-user-view',
@@ -61,6 +60,8 @@ export class EditUserViewComponent {
     } else {
       this.peticion.roles.splice(index, 1);
     }
+    console.log(this.peticion.roles);
+    
   }
 
   editarUsuario(idValue: string): void {
@@ -76,6 +77,8 @@ export class EditUserViewComponent {
       this.http.put<any>(`http://localhost:8080/usuarios/${idValue}`, body, { headers }).subscribe(
         response => {
           console.log('Usuario actualizado:', response);
+          this.accessToken = response.accessToken;
+          localStorage.setItem('accessToken', response.accessToken)
           this.router.navigate(["/users"])
         },
         error => {
