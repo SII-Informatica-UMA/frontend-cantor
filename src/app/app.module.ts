@@ -19,7 +19,8 @@ import { LoginViewComponent } from './views/login-view/login-view.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { Auth2Guard } from './auth2.guard';
-import { SuccessAlertComponent } from './components/success-alert/success-alert.component';
+import { GuardsViewComponent } from './views/guards-view/guards-view.component';
+import { CreateGuardViewComponent } from './create-guard-view/create-guard-view.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { SuccessAlertComponent } from './components/success-alert/success-alert.
     EditUserViewComponent,
     SingleUserViewComponent,
     LoginViewComponent,
-    SuccessAlertComponent
+    GuardsViewComponent,
+    CreateGuardViewComponent
   ],
   imports: [
     BrowserModule,
@@ -49,10 +51,10 @@ import { SuccessAlertComponent } from './components/success-alert/success-alert.
       { path: '', component: LoginViewComponent, canActivate: [Auth2Guard] },
       { path: 'home', component: HomeViewComponent, canActivate: [AuthGuard] },
       { path: 'users', component: UsersViewComponent, canActivate: [AuthGuard] },
-      { path: 'headquarters', component: UsersViewComponent, canActivate: [AuthGuard] },
       { path: 'users/create', component: CreateViewComponent, canActivate: [AuthGuard] },
       { path: 'users/edit/:idUser', component: EditUserViewComponent, canActivate: [AuthGuard] },
       { path: 'users/:idUser', component: SingleUserViewComponent, canActivate: [AuthGuard] },
+      { path: 'vigilantes', component: GuardsViewComponent, canActivate: [AuthGuard] },
       { path: '**', component: Error404Component }
 
     ])
