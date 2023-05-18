@@ -6,13 +6,6 @@ describe('CreateViewComponent', () => {
   let component: CreateViewComponent;
   let fixture: ComponentFixture<CreateViewComponent>;
 
-  beforeEach(async () => {
-      await TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule],
-        declarations: [CreateViewComponent]
-      }).compileComponents();
-  });
-
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [CreateViewComponent]

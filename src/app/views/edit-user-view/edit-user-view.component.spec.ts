@@ -1,29 +1,44 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ActivatedRoute, Router } from '@angular/router';
+import { of } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
 
 import { EditUserViewComponent } from './edit-user-view.component';
+import { User } from '../../interfaces/User';
 
 describe('EditUserViewComponent', () => {
   let component: EditUserViewComponent;
   let fixture: ComponentFixture<EditUserViewComponent>;
+  let mockActivatedRoute: any;
+  let mockRouter: any;
+  let mockHttpClient: any;
 
   beforeEach(async () => {
-      mockActivatedRoute = {
-        params: of({ idUser: '1' }) // Simular el parámetro idUser
-      };
+    mockActivatedRoute = {
+      params: of({ idUser: '123' })
+    };
 
-      mockRouter = {
-        navigate: jasmine.createSpy('navigate') // Espiar el método navigate del Router
-      };
+    mockRouter = {
+      navigate: jasmine.createSpy('navigate')
+    };
 
-      await TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule],
-        declarations: [EditUserViewComponent],
-        providers: [
-          { provide: ActivatedRoute, useValue: mockActivatedRoute },
-          { provide: Router, useValue: mockRouter }
-        ]
-      }).compileComponents();
-    });
+    mockHttpClient = {
+      get: jasmine.createSpy('get'),
+      put: jasmine.createSpy('put')
+    };
+
+    await TestBed.configureTestingModule({
+      declarations: [EditUserViewComponent],
+      imports: [HttpClientTestingModule],
+      providers: [
+        { provide: ActivatedRoute, useValue: mockActivatedRoute },
+        { provide: Router, useValue: mockRouter },
+        { provide: HttpClient, useValue: mockHttpClient }
+      ]
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -38,35 +53,37 @@ describe('EditUserViewComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should get user data on initialization', () => {
-      // Simular respuesta exitosa del servicio de obtener usuario
-      const mockUser = { firstName: 'John', lastName: 'Doe', email: 'johndoe@example.com', roles: [] };
-      spyOn(component.userService, 'getUserById').and.returnValue(of(mockUser));
+  it('should get the user data on initialization', () => {
+    const mockUser: User = { firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com', roles: [] };
+    const mockResponse = { user: mockUser };
+    const mockHeaders = new HttpHeaders().set('Authorization', 'Bearer mockToken');
 
-      component.ngOnInit();
+    mockHttpClient.get.and.returnValue(of(mockResponse));
 
-      expect(component.user).toEqual(mockUser);
+    component.ngOnInit();
+
+    expect(component.idValue).toBe('123');
+    expect(mockHttpClient.get).toHaveBeenCalledWith('http://localhost:8080/usuarios/123', { headers: mockHeaders });
+    expect(component.user).toEqual(mockUser);
+    expect(component.accessToken).toBe('mockToken');
   });
 
-  it('should update user information', () => {
-      // Simular respuesta exitosa del servicio de actualización de usuario
-      const updatedUser = { firstName: 'Jane', lastName: 'Smith', email: 'janesmith@example.com', roles: [] };
-      spyOn(component.userService, 'updateUser').and.returnValue(of(updatedUser));
+  it('should update the user data', () => {
+    const mockResponse = { accessToken: 'newToken' };
+    const mockHeaders = new HttpHeaders().set('Authorization', 'Bearer mockToken');
 
-      component.updateUser();
+    component.accessToken = 'mockToken';
+    component.user = { firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com', roles: [] };
+    component.editarUsuario('123');
 
-      expect(component.user).toEqual(updatedUser);
+    expect(mockHttpClient.put).toHaveBeenCalledWith(
+      'http://localhost:8080/usuarios/123',
+      component.user,
+      { headers: mockHeaders }
+    );
+    expect(component.accessToken).toBe('newToken');
+    expect(localStorage.getItem('accessToken')).toBe('newToken');
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/users']);
   });
 
-  it('should navigate to users page after successful update', () => {
-      // Simular respuesta exitosa del servicio de actualización de usuario con un accessToken
-      const updatedUser = { firstName: 'Jane', lastName: 'Smith', email: 'janesmith@example.com', roles: [] };
-      const mockAccessToken = 'mock-access-token';
-      spyOn(component.userService, 'updateUser').and.returnValue(of({ user: updatedUser, accessToken: mockAccessToken }));
-
-      component.updateUser();
-
-      expect(mockRouter.navigate).toHaveBeenCalledWith(['/users']);
-      expect(localStorage.getItem('accessToken')).toBe(mockAccessToken);
-    });
 });

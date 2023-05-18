@@ -18,4 +18,14 @@ describe('CrudBoxComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should update the windowWidth on window resize', () => {
+    const newWidth = 800;
+    spyOnProperty(window, 'innerWidth', 'get').and.returnValue(newWidth);
+
+    window.dispatchEvent(new Event('resize'));
+    fixture.detectChanges();
+
+    expect(component.windowWidth).toBe(newWidth);
+  });
 });

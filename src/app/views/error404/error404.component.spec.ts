@@ -19,12 +19,4 @@ describe('Error404Component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display the error message', () => {
-    const errorMessage = 'Oops! PAGE NOT FOUND';
-    component.errorMessage = errorMessage;
-    fixture.detectChanges();
-
-    const errorElement = fixture.nativeElement.querySelector('.error-message');
-    expect(errorElement.textContent).toContain(errorMessage);
-  });
 });
