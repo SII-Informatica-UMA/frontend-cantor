@@ -1,5 +1,5 @@
 <header [user]="true"></header>
 
 <div class="cards">
-    <user-target *ngFor="let usuario of usuarios" id={{usuario.id}} firstName={{usuario.firstName}} lastName={{usuario.lastName}} email={{usuario.email}} [roles]="usuario.roles"></user-target>
+    <user-target *ngFor="let usuario of usuarios" id={{usuario.id}} firstName={{usuario.firstName}} lastName={{usuario.lastName}} email={{usuario.email}} [roles]="usuario.roles" [delete]="!(usuarios.length == 1)"></user-target>
 </div>

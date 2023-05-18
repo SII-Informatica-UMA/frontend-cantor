@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -13,10 +14,12 @@ export class UserTargetComponent {
   @Input() lastName: string = "Doe";
   @Input() email: string = "john.doe@example.com";
   @Input() roles: string[] = ["STUDENT", "HEADQUARTER"];
+  @Input() delete:boolean = true;
+  accessToken: any;
 
-  constructor(public router: Router){}
+  constructor(public router: Router, private http: HttpClient){}
   
-  getUserRoleClass(role: string): string {
+  /* getUserRoleClass(role: string): string {
     switch (role) {
       case 'STUDENT':
         return 'user-card-student';
@@ -33,7 +36,7 @@ export class UserTargetComponent {
       default:
         return '';
     }
-  }
+  } */
 
   getUserRole(role: string): string {
     switch (role) {
@@ -53,6 +56,34 @@ export class UserTargetComponent {
         return '';
     }
   }
+
+  eliminarUsuario(id: string, event:MouseEvent): void {
+    event.stopPropagation(); // Detiene la propagación del evento
+    // Obtener el token de acceso del localStorage
+    this.accessToken = localStorage.getItem('accessToken');
+
+    // Verificar si hay un token de acceso disponible
+    if (this.accessToken) {
+      // Establecer las cabeceras con el token de acceso
+      const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.accessToken);
+
+      // Realizar la solicitud DELETE a la API
+      this.http.delete<any>(`http://localhost:8080/usuarios/${id}`, { headers }).subscribe(
+        response => {
+          console.log('Usuario eliminado:', response);
+          location.reload()
+          alert("Usuario eliminado correctamente.")
+        },
+        error => {
+          console.error('Error al eliminar el usuario:', error);
+          // Manejar el error según tus necesidades
+        }
+      );
+    } else {
+      console.warn('No se encontró un token de acceso en el localStorage');
+    }
+  }
+
 }
 
 

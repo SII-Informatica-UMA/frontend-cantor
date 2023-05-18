@@ -17,6 +17,8 @@ import { EditUserViewComponent } from './views/edit-user-view/edit-user-view.com
 import { SingleUserViewComponent } from './views/single-user-view/single-user-view.component';
 import { LoginViewComponent } from './views/login-view/login-view.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './auth.guard';
+import { Auth2Guard } from './auth2.guard';
 
 @NgModule({
   declarations: [
@@ -41,13 +43,13 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: LoginViewComponent },
-      { path: 'home', component: HomeViewComponent },
-      { path: 'users', component: UsersViewComponent },
-      { path: 'headquarters', component: UsersViewComponent },
-      { path: 'users/create', component: CreateViewComponent },
-      { path: 'users/edit/:idUser', component: EditUserViewComponent },
-      { path: 'users/:idUser', component: SingleUserViewComponent },
+      { path: '', component: LoginViewComponent, canActivate: [Auth2Guard] },
+      { path: 'home', component: HomeViewComponent, canActivate: [AuthGuard] },
+      { path: 'users', component: UsersViewComponent, canActivate: [AuthGuard] },
+      { path: 'headquarters', component: UsersViewComponent, canActivate: [AuthGuard] },
+      { path: 'users/create', component: CreateViewComponent, canActivate: [AuthGuard] },
+      { path: 'users/edit/:idUser', component: EditUserViewComponent, canActivate: [AuthGuard] },
+      { path: 'users/:idUser', component: SingleUserViewComponent, canActivate: [AuthGuard] },
       { path: '**', component: Error404Component }
 
     ])

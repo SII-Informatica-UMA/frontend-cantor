@@ -4,3 +4,9 @@ form {
     justify-content: center;
     flex-direction: column;
 }
+
+.btn {
+    margin-top: 20px;
+    width: 20%;
+    margin: 20px 40%;
+}

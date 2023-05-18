@@ -75,8 +75,13 @@ export class EditUserViewComponent {
       this.http.put<any>(`http://localhost:8080/usuarios/${idValue}`, body, { headers }).subscribe(
         response => {
           console.log('Usuario actualizado:', response);
-          this.accessToken = response.accessToken;
-          localStorage.setItem('accessToken', response.accessToken)
+          console.log('AccessToken:', response.accessToken);
+          
+          if(response.accessToken){
+            this.accessToken = response.accessToken;
+            localStorage.setItem('accessToken', response.accessToken)
+          }
+          
           this.router.navigate(['/users'])
         },
         error => {

@@ -2,63 +2,24 @@
 <form>
     <div class="form-group">
       <label for="nombreInput">Nombre</label>
-      <input type="text" class="form-control" id="nombreInput" placeholder="John" name="nombre" [(ngModel)]="peticion.nombre">
+      <input type="text" class="form-control" id="nombreInput" placeholder="John" name="nombre" [(ngModel)]="peticion.firstName">
     </div>
     <div class="form-group">
       <label for="apellidoInput">Apellido/s</label>
-      <input type="text" class="form-control" id="apellidoInput" placeholder="Doe" name="apellido" [(ngModel)]="peticion.apellido">
+      <input type="text" class="form-control" id="apellidoInput" placeholder="Doe" name="apellido" [(ngModel)]="peticion.lastName">
     </div>
     <div class="form-group">
       <label for="emailInput">Dirección de correo electrónico</label>
-      <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" name="correo" [(ngModel)]="peticion.correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+      <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" name="correo" [(ngModel)]="peticion.email">
     </div>
     <div class="form-group">
       <label for="contrasenaInput">Contraseña</label>
-      <input type="password" class="form-control" id="contrasenaInput" placeholder="Nueva Contraseña" name="contrasena" [(ngModel)]="peticion.contrasena">
+      <input type="password" class="form-control" id="contrasenaInput" placeholder="Nueva Contraseña" name="contrasena" [(ngModel)]="peticion.password">
     </div>
     <div class="form-group">
       <label for="repetirContrasenaInput">Repetir contraseña</label>
-      <input type="password" class="form-control" id="repetirContrasenaInput" placeholder="Repetir Contraseña" name="repetirContrasena" [(ngModel)]="peticion.repetirContrasena">
+      <input type="password" class="form-control" id="repetirContrasenaInput" placeholder="Repetir Contraseña" name="repetirContrasena" [(ngModel)]="peticion.repitePassword">
     </div>
-    <div>
-      <span>Selecciona rol/es:</span>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="estudianteCheckbox" (change)="toggleRole('STUDENT')">
-        <label class="form-check-label" for="estudianteCheckbox">
-          Estudiante
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="vigilanteCheckbox" (change)="toggleRole('CLASSROOM_GUARD')">
-        <label class="form-check-label" for="vigilanteCheckbox">
-          Vigilante de aula
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="responsableCheckbox" (change)="toggleRole('CLASSROOM_MANAGER')">
-        <label class="form-check-label" for="responsableCheckbox">
-          Responsable de aula
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="sedeCheckbox" (change)="toggleRole('HEADQUARTER_MANAGER')">
-        <label class="form-check-label" for="sedeCheckbox">
-          Responsable de sede
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="correctorCheckbox" (change)="toggleRole('CORRECTOR')">
-        <label class="form-check-label" for="correctorCheckbox">
-          Corrector
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="vicerrectorCheckbox" (change)="toggleRole('VICE_RECTORATE')">
-        <label class="form-check-label" for="vicerrectorCheckbox">
-          Vicerrector
-        </label>
-      </div>
-</div>
 <button type="submit" class="btn btn-success" (click)="crearUsuario()">
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
     <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"></path>

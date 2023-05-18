@@ -70,3 +70,7 @@
     align-items: center;
     margin-bottom: 10px;
   }
+
+  .btn{
+    z-index: 1;
+  }

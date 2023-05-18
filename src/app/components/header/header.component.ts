@@ -11,4 +11,10 @@ export class HeaderComponent {
 
   @Input() user: boolean = false;
   @Input() headquarter: boolean = false;
+  accessToken:any = localStorage.getItem('accessToken');
+
+  cerrarSesion(){
+    localStorage.removeItem('accessToken');
+    this.router.navigate(['/'])
+  }
 }
