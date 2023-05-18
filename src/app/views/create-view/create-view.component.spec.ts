@@ -6,6 +6,13 @@ describe('CreateViewComponent', () => {
   let component: CreateViewComponent;
   let fixture: ComponentFixture<CreateViewComponent>;
 
+  beforeEach(async () => {
+      await TestBed.configureTestingModule({
+        imports: [HttpClientTestingModule],
+        declarations: [CreateViewComponent]
+      }).compileComponents();
+  });
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [CreateViewComponent]
@@ -18,4 +25,13 @@ describe('CreateViewComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should validate email format correctly', () => {
+      const validEmail = 'test@example.com';
+      const invalidEmail = 'testinvalid';
+
+      expect(component.validarFormatoEmail(validEmail)).toBe(true);
+      expect(component.validarFormatoEmail(invalidEmail)).toBe(false);
+  });
+
 });
