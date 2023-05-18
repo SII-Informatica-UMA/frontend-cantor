@@ -5,9 +5,9 @@
 }
 .spacer {
     display: flex;
-    justify-content: space-between;
-    width: 50%;
-    right: 0;
+    align-items: center;
+    margin: 0px;
+    right: 0px;
 }
 
 .toolbar {

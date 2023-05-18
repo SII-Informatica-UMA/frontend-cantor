@@ -58,6 +58,11 @@ export class CreateViewComponent {
             },
             error => {
               console.error('Error al crear el usuario:', error);
+              if(error.status == 409){
+                alert("Error 409: Este correo ya se encuentra en uso. Porfavor intente con otro.")
+              }else if(error.status == 403){
+                alert("Sus credenciales no permiten realizar esta acción. Por favor inicie sesión de nuevo.")
+              }
               // Manejar el error según tus necesidades
             }
           );

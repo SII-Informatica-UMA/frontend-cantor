@@ -2,7 +2,14 @@
 <div class="body">  
     <div class="card">
         <div class="card-top">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqN6b1K3RnZVfiG8E31NTyH0_6cYVAI-KpOVVLRVyyssHnlmMizcimsvsNzibt20DKsW0&usqp=CAU" alt="Foto de perfil" class="card-image">
+            <img *ngIf="usuario.roles[0] == 'STUDENT'" src="https://cdn-icons-png.flaticon.com/512/5850/5850276.png" alt="Foto de perfil" class="card-image">
+            <img *ngIf="usuario.roles[0] == 'CLASSROOM_GUARD'" src="https://static.vecteezy.com/system/resources/previews/007/468/567/original/colorful-simple-flat-of-security-guard-icon-or-symbol-people-concept-illustration-vector.jpg" alt="Foto de perfil" class="card-image">
+            <img *ngIf="usuario.roles[0] == 'CORRECTOR'" src="https://cdn-icons-png.flaticon.com/512/5488/5488920.png" alt="Foto de perfil" class="card-image">
+            <img *ngIf="usuario.roles[0] == 'HEADQUARTER_MANAGER'" src="https://cdn-icons-png.flaticon.com/512/610/610120.png" alt="Foto de perfil" class="card-image">
+            <img *ngIf="usuario.roles[0] == 'CLASSROOM_MANAGER'" src="https://cdn-icons-png.flaticon.com/512/610/610120.png" alt="Foto de perfil" class="card-image">
+            <img *ngIf="usuario.roles[0] == 'VICE_RECTORATE'" src="https://cdn-icons-png.flaticon.com/512/610/610120.png" alt="Foto de perfil" class="card-image">
+            <img *ngIf="!usuario.roles[0]" src="https://static.thenounproject.com/png/994628-200.png" alt="Foto de perfil" class="card-image">
+
             <div class="card-title">
                 <h1 class="card-name">{{usuario.firstName + ' ' + usuario.lastName}}</h1>
                 <p class="card-id">{{usuario.id}}</p>

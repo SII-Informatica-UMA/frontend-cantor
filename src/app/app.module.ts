@@ -19,6 +19,8 @@ import { LoginViewComponent } from './views/login-view/login-view.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { Auth2Guard } from './auth2.guard';
+import { SuccessAlertComponent } from './components/success-alert/success-alert.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { Auth2Guard } from './auth2.guard';
     NewButtonComponent,
     EditUserViewComponent,
     SingleUserViewComponent,
-    LoginViewComponent
+    LoginViewComponent,
+    SuccessAlertComponent
   ],
   imports: [
     BrowserModule,
