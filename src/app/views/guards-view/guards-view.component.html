@@ -1,2 +1,5 @@
-<header></header>
-<p>guards-view works!</p>
+<header [vigilante]="true"></header>
+
+<div class="cards">
+    <guard-target *ngFor="let vigilante of vigilantes" id={{vigilante.id}} firstName={{vigilante.firstName}} lastName={{vigilante.lastName}} email={{vigilante.email}} DNI={{vigilante.dni}} [slotsConDisponibilidad]="vigilante.slotsConDisponibilidad" [delete]="!(vigilantes.length == 1)"></guard-target>
+</div>

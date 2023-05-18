@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeViewComponent } from './views/home-view/home-view.component';
 import { CreateViewComponent } from './views/create-view/create-view.component';
-import { Error404Component } from './views/error404/error404.component';
+import { ErrorComponent } from './views/error/error.component';
 import { UsersViewComponent } from './views/users-view/users-view.component';
 import { UserTargetComponent } from './components/user-target/user-target.component';
 import { UserNavbarComponent } from './components/user-navbar/user-navbar.component';
@@ -20,7 +20,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { Auth2Guard } from './auth2.guard';
 import { GuardsViewComponent } from './views/guards-view/guards-view.component';
-import { CreateGuardViewComponent } from './create-guard-view/create-guard-view.component';
+import { CreateGuardViewComponent } from './views/create-guard-view/create-guard-view.component';
+import { GuardTargetComponent } from './components/guard-target/guard-target.component';
+import { EditGuardViewComponent } from './views/edit-guard-view/edit-guard-view.component';
+import { SingleGuardViewComponent } from './views/single-guard-view/single-guard-view.component';
 
 
 @NgModule({
@@ -30,7 +33,7 @@ import { CreateGuardViewComponent } from './create-guard-view/create-guard-view.
     CrudBoxComponent,
     HomeViewComponent,
     CreateViewComponent,
-    Error404Component,
+    ErrorComponent,
     UserTargetComponent,
     UsersViewComponent,
     UserNavbarComponent,
@@ -39,7 +42,10 @@ import { CreateGuardViewComponent } from './create-guard-view/create-guard-view.
     SingleUserViewComponent,
     LoginViewComponent,
     GuardsViewComponent,
-    CreateGuardViewComponent
+    CreateGuardViewComponent,
+    GuardTargetComponent,
+    EditGuardViewComponent,
+    SingleGuardViewComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +61,10 @@ import { CreateGuardViewComponent } from './create-guard-view/create-guard-view.
       { path: 'users/edit/:idUser', component: EditUserViewComponent, canActivate: [AuthGuard] },
       { path: 'users/:idUser', component: SingleUserViewComponent, canActivate: [AuthGuard] },
       { path: 'vigilantes', component: GuardsViewComponent, canActivate: [AuthGuard] },
-      { path: '**', component: Error404Component }
+      { path: 'vigilantes/create', component: CreateGuardViewComponent, canActivate: [AuthGuard] },
+      { path: 'vigilantes/edit/:idVigilante', component: EditGuardViewComponent, canActivate: [AuthGuard] },
+      { path: 'vigilantes/:idVigilante', component: SingleGuardViewComponent, canActivate: [AuthGuard] },
+      { path: '**', component: ErrorComponent }
 
     ])
   ],

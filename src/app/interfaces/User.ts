@@ -6,3 +6,12 @@ export interface User {
   email: string;
   roles: Role[];
 }
+
+
+export interface Vigilante {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  DNI: string;
+}

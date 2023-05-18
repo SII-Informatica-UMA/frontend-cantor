@@ -1,0 +1,39 @@
+<header></header>
+<form>
+  <div class="form-group">
+    <label for="nombreInput">Nombre</label>
+    <input type="text" class="form-control" id="nombreInput" placeholder="{{vigilante.firstName}}" name="nombre"
+           [(ngModel)]="vigilante.firstName">
+  </div>
+  <div class="form-group">
+    <label for="apellidoInput">Apellido/s</label>
+    <input type="text" class="form-control" id="apellidoInput" placeholder="{{vigilante.lastName}}" name="apellido"
+           [(ngModel)]="vigilante.lastName">
+  </div>
+  <div class="form-group">
+    <label for="emailInput">Dirección de correo electrónico</label>
+    <input type="email" class="form-control" id="emailInput" placeholder="{{vigilante.email}}" name="correo"
+           [(ngModel)]="vigilante.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+  </div>
+  <div class="form-group">
+    <label for="dniInput">DNI</label>
+    <input type="dni" class="form-control" id="dniInput" placeholder="{{vigilante.DNI}}" name="dni"
+           [(ngModel)]="vigilante.DNI">
+  </div>
+  <div class="form-group">
+    <label for="phoneNumberInput">Número de teléfono</label>
+    <input type="phoneNumber" class="form-control" id="phoneNumberInput" placeholder="{{vigilante.phoneNumber}}" name="phoneNumber"
+           [(ngModel)]="vigilante.phoneNumber">
+  </div>
+  <button type="submit" class="btn btn-success" (click)="editarVigilante(idValue)">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle"
+         viewBox="0 0 16 16">
+      <path
+        d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"></path>
+      <path
+        d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"></path>
+    </svg>
+    Editar
+  </button>
+</form>
+

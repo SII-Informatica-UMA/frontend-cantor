@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   @Input() user: boolean = false;
+  @Input() vigilante: boolean = false;
   @Input() headquarter: boolean = false;
   accessToken:any = localStorage.getItem('accessToken');
   windowWidth: number = window.innerWidth;
